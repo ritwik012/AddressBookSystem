@@ -65,6 +65,20 @@ namespace AddressBookSystem
                 }
             }
         }
+        public void DeleteContact(string name)
+        {
+            Contact delete = new Contact();
+            foreach (var contact in addressList)
+            {
+                if (contact.FirstName == name || contact.LastName == name)
+                {
+                    delete = contact;
+                }
+            }
+            addressList.Remove(delete);
+            Console.WriteLine(name + " contact is deleted from the Address Book");
+        }
+
         public void Display()
         {
             foreach (var contact in addressList)
