@@ -182,5 +182,30 @@ namespace AddressBookSystem
                 Console.WriteLine("The {0} Addressbook does not exist. Please Enter a Valid Addressbook Name. ", addressBookName);
             }
         }
+        public void SortBy()
+        {
+            Console.WriteLine("Enter the Address Book name that you want to sort : ");
+            string addressBookName = Console.ReadLine();
+            Console.WriteLine("How do you want the Sort the Addressbook : \n 1. Sort based on City \n 2. Sort based on State \n 3. Sort based on Zip");
+            int option = Convert.ToInt32(Console.ReadLine());
+            switch (option)
+            {
+                case 1:
+                    dictionary[addressBookName].Sort((x, y) => x.City.CompareTo(y.City));
+                    Console.WriteLine("After Sorting alphabetically, The Address Book is arranged as : ");
+                    Display();
+                    break;
+                case 2:
+                    dictionary[addressBookName].Sort((x, y) => x.State.CompareTo(y.State));
+                    Console.WriteLine("After Sorting alphabetically, The Address Book is arranged as : ");
+                    Display();
+                    break;
+                case 3:
+                    dictionary[addressBookName].Sort((x, y) => x.Zip.CompareTo(y.Zip));
+                    Console.WriteLine("After Sorting alphabetically, The Address Book is arranged as : ");
+                    Display();
+                    break;
+            }
+        }
     }
 }
