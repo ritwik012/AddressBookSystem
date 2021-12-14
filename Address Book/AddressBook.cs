@@ -207,5 +207,23 @@ namespace AddressBookSystem
                     break;
             }
         }
+        public void ReadFile()
+        {
+            Console.WriteLine("The Contact details in the file after reading : ");
+            string filePath = @"C:\Users\navee\OneDrive\Documents\Bridgelabz practice\AddressBookSystem\AddressBookSystem\Files\File.txt";
+            string text = File.ReadAllText(filePath);
+            Console.WriteLine(text);
+        }
+        public void WriteUsingStreamWriter()
+        {
+            Console.WriteLine("The Contact details in the file after writing : ");
+            String filePath = @"C:\Users\navee\OneDrive\Documents\Bridgelabz practice\AddressBookSystem\AddressBookSystem\Files\File.txt";
+            using (StreamWriter writer = File.AppendText(filePath))
+            {
+                writer.WriteLine("\nSNN : 173012021");
+                writer.Close();
+                Console.WriteLine(File.ReadAllText(filePath));
+            }
+        }
     }
 }
