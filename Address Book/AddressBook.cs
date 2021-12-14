@@ -167,5 +167,20 @@ namespace AddressBookSystem
             List<Contact> stateList = addressList.FindAll(e => e.State == state);
             Console.WriteLine("The number of contact persons in the state {0} are {1}", state, stateList.Count());
         }
+        public void AddressBookSorting()
+        {
+            Console.WriteLine("Enter the Address Book name that you want to sort : ");
+            string addressBookName = Console.ReadLine();
+            if (dictionary.ContainsKey(addressBookName))
+            {
+                dictionary[addressBookName].Sort((a, b) => a.FirstName.CompareTo(b.FirstName));
+                Console.WriteLine("After Sorting alphabetically, The Address Book is arranged as : ");
+                Display();
+            }
+            else
+            {
+                Console.WriteLine("The {0} Addressbook does not exist. Please Enter a Valid Addressbook Name. ", addressBookName);
+            }
+        }
     }
 }
