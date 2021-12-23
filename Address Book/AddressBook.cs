@@ -1,8 +1,11 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+
 
 namespace AddressBookSystem
 {
@@ -223,6 +226,28 @@ namespace AddressBookSystem
                 writer.WriteLine("\nSNN : 173012021");
                 writer.Close();
                 Console.WriteLine(File.ReadAllText(filePath));
+            }
+        }
+        public void ReadWriteAsCsv()
+        {
+            string importFilePath = @"C:\Users\navee\OneDrive\Documents\Bridgelabz practice\AddressBookSystem\AddressBookSystem\Files\import.csv";
+            string exportFilePath = @"C:\Users\navee\OneDrive\Documents\Bridgelabz practice\AddressBookSystem\AddressBookSystem\Files\export.csv";
+            using (var reader = new StreamReader(importFilePath))
+            using (var csv = new CsvReader(reader, System.Globalization.CultureInfo.InvariantCulture))
+            {
+                var records = csv.GetRecords<Contact>().ToList();
+                Console.WriteLine("Read data successfully from import csv");
+                foreach (var data in records)
+                {
+                    Console.WriteLine(data.FirstName + "\t" + data.LastName + "\t" + data.Address + "\t" + data.City + "\t" + data.State + "\t" + data.Zip + "\t" + data.PhoneNumber + "\t" + data.Email + "\n");
+                }
+                Console.WriteLine("\n************  Now reading from import csv file and write to export csv file  ************");
+                using (var writer = new StreamWriter(exportFilePath))
+                using (var csvExport = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csvExport.WriteRecords(records);
+                }
+                Console.WriteLine("The data is written in export csv file");
             }
         }
     }
