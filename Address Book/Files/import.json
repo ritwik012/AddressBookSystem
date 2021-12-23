@@ -1,0 +1,22 @@
+[
+  {
+    "FirstName": "Rutwik",
+    "LastName": "Gulhane",
+    "Address": "Main Road",
+    "City": "Kalmeshwar",
+    "State": "Maharashtra",
+    "Zip": "441501",
+    "PhoneNumber": "8007356529",
+    "Email": "rutwik@bridgelabz.com"
+  },
+  {
+    "FirstName": "Lokesh",
+    "LastName": "Sai",
+    "Address": "ClockTower",
+    "City": "Warangal",
+    "State": "Telangana",
+    "Zip": "587499",
+    "PhoneNumber": "8528520575",
+    "Email": "lokesh000@gmail.com"
+  }
+]
